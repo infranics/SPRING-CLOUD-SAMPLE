@@ -1,0 +1,2 @@
+# windows cmd
+cf create-user-provided-service eureka-service -p "{\"uri\":\"http:\/\/CloudEureka-edu.ncloudpaas-ta.com\"}"
