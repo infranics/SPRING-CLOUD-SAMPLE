@@ -1,4 +1,4 @@
---
+---
 applications:
 - name: CloudConfig                              # CF push 시 생성되는 이름
   memory: 512M                                   # 메모리 
