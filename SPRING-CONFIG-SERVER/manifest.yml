@@ -7,7 +7,8 @@ applications:
   path: build/libs/CloudConfig.jar               # build 후 생성된 jar 위치
   buildpack: java_buildpack                      # cf buildpacks 명령어로 java buildpack 이름 확인
 env:
-  spring_cloud_config_server_git_uri: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git 
+#  spring_cloud_config_server_git_uri: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git 
+  spring_cloud_config_server_git_uri: https://github.com/infranics/SPRING-CLOUD-SAMPLE-CONFIG.git 
   spring_cloud_config_server_git_username: se.ban@infranicsmail.com 
   spring_cloud_config_server_git_password: syban123!! 
   spring_cloud_config_server_git_force-pull: true
