@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: CloudConfig
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git
+#          username: xxxxxx
+#          password: XXXXXX
+#          basedir: target/config
+          force-pull: true
+
+
+server:
+  port: ${PORT:8004}
+
+management:
+  security:
+    enabled: false
