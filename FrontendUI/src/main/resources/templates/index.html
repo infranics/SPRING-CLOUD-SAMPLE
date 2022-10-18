@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>PaasTa</title>
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+    <!-- <script type="text/javascript" src="../../../resources/static/js/jquery-1.12.4.min.js"></script> -->
+    <script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+    
+</head>
+<body>
+    <div>
+        <!-- <button onclick="javascript:go1();">ownEureka</button>  -->
+        <button onclick="javascript:go1();">API_ONE_WITH_EUREKA</button>
+    </div>
+    <div id="result">
+
+    </div>
+
+
+    <div>
+        <button onclick="javascript:go2();">API_ONE_VIA_ZUUL</button>
+    </div>
+    <div id="result2">
+
+    </div>
+
+</body>
+
+<script>
+
+    function go1() {
+        $.ajax({
+            url: "/eureka/1",
+            success: function(data) {
+            	$("#result").html('/eureka/1');
+                console.log(data);
+                $("#result").html(data.result.toString());
+            },
+            error: function(error) {
+                console.log(error);
+                $("#result").html(data.result);
+            }
+        });
+    }
+
+    function go2() {
+        $.ajax({
+            url: "/zuul/1",
+            success: function(data) {
+            	$("#result2").html('/zuul/1');
+                console.log(data);
+                $("#result2").html(data.result);
+            },
+            error: function(error) {
+                console.log(error);
+                $("#result2").html(data.result);
+            }
+        });
+    }
+
+    function go3() {
+        $.ajax({
+            url: "/eureka/servicePackCatalog/list",
+            success: function(data) {
+            	$("#result").html('');
+                console.log(data);
+                $("#result").append('<tr>'
+                        + '<td>no</td>'
+                        + '<td>created</td>'
+                        + '<td>classification</td>'
+                        + '<td>useYN</td>'
+                        + '</tr>');
+                $.each(data.result, function (id, data) {
+                	$("#result").append('<tr>'
+                            + '<td>' + data.no + '</td>'
+                            + '<td>' + data.created + '</td>'
+                            + '<td>' + data.classification + '</td>'
+                            + '<td>' + data.useYn + '</td>'
+                            + '</tr>');
+                });
+            },
+            error: function(error) {
+                console.log(error);
+                $("#result").html(data.result);
+            }
+        });
+    }
+
+    function go4() {
+        $.ajax({
+            url: "/zuul/servicePackCatalog/list",
+            success: function(data) {
+            	$("#result").html('');
+                console.log(data);
+                $("#result").append('<tr>'
+                        + '<td>no</td>'
+                        + '<td>created</td>'
+                        + '<td>classification</td>'
+                        + '<td>useYN</td>'
+                        + '</tr>');
+                $.each(data.result, function (id, data) {
+                	$("#result").append('<tr>'
+                            + '<td>' + data.no + '</td>'
+                            + '<td>' + data.created + '</td>'
+                            + '<td>' + data.classification + '</td>'
+                            + '<td>' + data.useYn + '</td>'
+                            + '</tr>');
+                });
+            },
+            error: function(error) {
+                console.log(error);
+                $("#result").html(data.result);
+            }
+        });
+    }
+</script>
+</html>
+
+

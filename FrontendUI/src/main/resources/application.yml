@@ -1,0 +1,20 @@
+spring:
+  application:
+      name: CloudUi
+
+
+server:
+  port: ${PORT:8080}
+
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:2221/eureka/
+
+  instance:
+    hostname: ${spring.cloud.client.hostname}
+    #hostname: localhost
+    
+        
